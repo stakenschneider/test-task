@@ -1,0 +1,89 @@
+
+.close{
+    margin-left: 463px;
+    margin-top: 14px;
+}
+
+.percentage{
+    position: absolute;
+    width: 106px;
+    height: 79px;
+    left: 911px;
+    top: 765px;
+
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 59px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.percentage-label{
+    position: absolute;
+    width: 196px;
+    height: 23px;
+    left: 1026px;
+    top: 792px;
+
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.percentage-bar-parent{
+    position: absolute;
+    width: 323px;
+    height: 31px;
+    left: 910px;
+    top: 831px;
+
+    background: #435F40;
+    border-radius: 35px;
+}
+.percentage-bar-child{
+    position: absolute;
+    width: 237.62px;
+    height: 22.55px;
+    left: 915.14px;
+    top: 835.23px;
+
+    background: #F3DBC7;
+    border-radius: 35px;
+}
+
+.info-button{
+    position: absolute;
+    width: 110px;
+    height: 31px;
+    left: 1256px;
+    top: 831px;
+
+    background: #435F40;
+    border-radius: 35px;
+}
+.info-button-label{
+    position: absolute;
+    width: 74px;
+    height: 14px;
+    left: 1274px;
+    top: 840px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #FFFFFF;
+}

@@ -8,23 +8,45 @@
 }
 
 .content-background {
-    width: 1133px;
+    /*width: 1133px;*/
     height: 876px;
 
-    padding-top: 160px;
+    /*padding-top: 29px;*/
+    margin-right: 13px;
     margin-left: 294px;
     background: #FFFFFF;
     border-radius: 25px;
 }
 
-.aviary-background {
-    position: absolute;
-    width: 506px;
-    height: 217px;
-    left: 881px;
-    top: 743px;
+.giraffes-label {
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    color: #567354;
+    padding-right: 24px;
+}
+
+.add-giraffe {
+    width: 37px;
+    height: 37px;
     background: #668663;
-    border-radius: 28px;
+    border-radius: 52px;
+    padding: 10px;
+}
+
+.aviary-background {
+    /*position: absolute;*/
+    width: 506px;
+    height: 150px;
+    /*left: 881px;*/
+    margin-left: 587px;
+    background: #668663;
+   border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+
+    padding-bottom: 10px;
 }
 
 .renewal-background {
@@ -38,14 +60,17 @@
     border-radius: 28px;
 }
 
-.parent{
+.parent {
     display: flex;
     justify-content: start;
     align-items: start;
     overflow-x: auto;
-    /*margin-left: 50px;*/
-    padding-bottom: 150px;
-    padding-left: 18px;
+    margin-top: 26px;
+    margin-left: 18px;
+    padding-bottom: 76px;
+
+    /*padding-bottom: 150px;*/
+    /*padding-left: 18px;*/
 }
 
 .parent::-webkit-scrollbar {
@@ -61,5 +86,5 @@
 }
 
 body {
-margin: 0 !important;
+    margin: 0 !important;
 }
