@@ -1,13 +1,31 @@
-import React, { Suspense, useState } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
-import UploadExample from './uploadExample';
+import './styles.css'
+import './sideMenu/SideMenu.css';
+// import {GiraffeModel} from "../models/GiraffeModel";
+import CardContentItem from "./CardContentItem";
+
 
 function App() {
-    
+
     return (
         <div>
-            <h1 style={{ textAlign: 'center', textTransform: 'uppercase' }}>Let's start dev</h1>
-            <UploadExample/>
+            <div className='main-background'>
+                <div className='content-background'>
+                    <section className='parent'>
+                        {giraffes.map((giraffe) =>
+                        {return (
+                            <div className='giraffe-card'>
+                                <CardContentItem giraffeInfo={giraffe}/>
+                            </div>
+                        )
+                        })}
+                    </section>
+                </div>
+                <div className='aviary-background'/>
+                {/*<div className='renewal-background'/>*/}
+            </div>
+
         </div>
     )
 }

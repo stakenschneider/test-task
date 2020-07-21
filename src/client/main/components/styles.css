@@ -1,0 +1,65 @@
+.main-background {
+    width: 100%;
+    min-height: 100%;
+    background: #668663;
+    border-radius: 35px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.content-background {
+    width: 1133px;
+    height: 876px;
+
+    padding-top: 160px;
+    margin-left: 294px;
+    background: #FFFFFF;
+    border-radius: 25px;
+}
+
+.aviary-background {
+    position: absolute;
+    width: 506px;
+    height: 217px;
+    left: 881px;
+    top: 743px;
+    background: #668663;
+    border-radius: 28px;
+}
+
+.renewal-background {
+    left: 349px;
+    top: 702px;
+    position: absolute;
+    width: 506px;
+    height: 287px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 15px #869CB0;
+    border-radius: 28px;
+}
+
+.parent{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    overflow-x: auto;
+    /*margin-left: 50px;*/
+    padding-bottom: 150px;
+    padding-left: 18px;
+}
+
+.parent::-webkit-scrollbar {
+    display: none;
+}
+
+.giraffe-card {
+    margin-left: 33px;
+    min-width: 236px;
+    height: 495px;
+    background: #F3DBC7;
+    border-radius: 28px;
+}
+
+body {
+margin: 0 !important;
+}
