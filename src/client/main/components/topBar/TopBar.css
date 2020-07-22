@@ -75,14 +75,6 @@ section.top-bar-common {
     background: url(../../images/giraffe-logo.png);
 }
 
-.giraffes-label {
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 37px;
-    color: #567354;
-    padding-right: 24px;
-}
-
 .add-giraffe {
     width: 37px;
     height: 37px;

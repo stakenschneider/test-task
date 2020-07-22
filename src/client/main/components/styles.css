@@ -64,3 +64,13 @@ body {
     text-align: center;
     color: #FFFFFF;
 }
+
+.giraffes-label {
+    margin-left: 56px;
+
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    color: #567354;
+    padding-right: 24px;
+}
