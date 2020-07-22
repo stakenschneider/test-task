@@ -2,11 +2,11 @@ import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import './styles.css'
 import './sideMenu/SideMenu.css';
-// import {GiraffeModel} from "../models/GiraffeModel";
 import CardContentItem from "./CardContentItem";
 import {GiraffeModel} from "../models/GiraffeModel";
 import TopBar from "./topBar/TopBar";
 import AviaryInfoCard from "./aviaryInfoCard/AviaryInfoCard";
+import SideMenu from "./sideMenu/SideMenu";
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
         new GiraffeModel('Мотильда', 600, 500, 'ж', 'Стандарт', 'Ест детей',  'Вспылчивый', '1.img')
     ])
 
-    const [aviarys, setAviary] = React.useState([
+    const [aviaries, setAviary] = React.useState([
         {name: 'Вольер 1'},
         {name: 'Вольер 2'},
         {name: 'Вольер 3'}
@@ -35,8 +35,10 @@ function App() {
     return (
         <div>
             <div className='main-background'>
+                <div className='flex-row'>
+                <SideMenu></SideMenu>
                 <div className='content-background'>
-                    <TopBar aviarys={aviarys}/>
+                    <TopBar aviaries={aviaries}/>
 
                     <section className='parent'>
                         {giraffes.map((giraffe) =>
@@ -51,9 +53,9 @@ function App() {
                     <AviaryInfoCard/>
 
                 </div>
+                </div>
                 {/*<div className='renewal-background'/>*/}
             </div>
-
         </div>
     )
 }

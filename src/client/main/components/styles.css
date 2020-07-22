@@ -3,47 +3,23 @@
     min-height: 100%;
     background: #668663;
     border-radius: 35px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding: 12px 0 12px 0;
 }
 
 .content-background {
-    /*width: 1133px;*/
     height: 876px;
-
-    /*padding-top: 29px;*/
     margin-right: 13px;
-    margin-left: 294px;
+    width: 1133px;
     background: #FFFFFF;
     border-radius: 25px;
 }
 
-.giraffes-label {
-    font-family: Roboto, serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 37px;
-    color: #567354;
-    padding-right: 24px;
-}
-
-.add-giraffe {
-    width: 37px;
-    height: 37px;
-    background: #668663;
-    border-radius: 52px;
-    padding: 10px;
-}
-
 .aviary-background {
-    /*position: absolute;*/
     width: 506px;
     height: 150px;
-    /*left: 881px;*/
     margin-left: 587px;
     background: #668663;
-   border-top-left-radius: 28px;
+    border-top-left-radius: 28px;
     border-top-right-radius: 28px;
 
     padding-bottom: 10px;
@@ -68,9 +44,6 @@
     margin-top: 26px;
     margin-left: 18px;
     padding-bottom: 76px;
-
-    /*padding-bottom: 150px;*/
-    /*padding-left: 18px;*/
 }
 
 .parent::-webkit-scrollbar {
@@ -87,4 +60,8 @@
 
 body {
     margin: 0 !important;
+}
+
+.flex-row {
+    display: flex;
 }
