@@ -7,10 +7,13 @@ import {GiraffeModel} from "../models/GiraffeModel";
 import TopBar from "./topBar/TopBar";
 import AviaryInfoCard from "./aviaryInfoCard/AviaryInfoCard";
 import SideMenu from "./sideMenu/SideMenu";
-import DropdownMenu from "./dropdownMenu/DropdownMenu";
-
 
 function App() {
+    const [aviaries, setAviary] = React.useState([
+        {name: 'Вольер 1', selected: true},
+        {name: 'Вольер 2', selected: false},
+        {name: 'Вольер 3', selected: false}
+    ])
 
     const [giraffes, setGiraffe] = React.useState([
         new GiraffeModel('Мотильда', 800, 4, 'ж', 'Стандарт', 'Растительная',  'Кокетка', '1.img'),
@@ -27,20 +30,13 @@ function App() {
         new GiraffeModel('Мотильда', 600, 500, 'ж', 'Стандарт', 'Ест детей',  'Вспылчивый', '1.img')
     ])
 
-    const [aviaries, setAviary] = React.useState([
-        {name: 'Вольер 1', selected: true},
-        {name: 'Вольер 2', selected: false},
-        {name: 'Вольер 3', selected: false}
-    ])
-
     return (
         <div>
             <div className='main-background'>
                 <div className='flex-row'>
                 <SideMenu/>
                 <div className='content-background'>
-                    <TopBar aviaries={aviaries}/>
-
+                    <TopBar aviaries={aviaries} setAviary={setAviary}/>
                     <section className='parent'>
                         {giraffes.map((giraffe) =>
                         {return (

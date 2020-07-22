@@ -23,7 +23,6 @@ section.top-bar-common {
 }
 
 .top-bar-labels {
-    width: 67px;
     height: 19px;
     margin-right: 19px;
 
@@ -51,15 +50,6 @@ section.top-bar-common {
     height: 100%;
     background: #567354;
     border-radius: 18px;
-}
-
-.add-aviary {
-    width: 20px;
-    height: 20px;
-    padding: 5px;
-    background: #D9D9D9;
-    border-radius: 52px;
-    cursor: pointer;
 }
 
 .bell {
@@ -100,4 +90,9 @@ section.top-bar-common {
     border-radius: 52px;
     padding: 10px;
     cursor: pointer;
+}
+
+.add-giraffe-svg {
+    width: 16px;
+    height: 16px;
 }
