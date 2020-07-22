@@ -26,20 +26,16 @@ section.top-bar-common {
     width: 67px;
     height: 19px;
     margin-right: 19px;
-    font-family: Roboto, serif;
-    font-style: normal;
+
     font-weight: 300;
     font-size: 16px;
     line-height: 19px;
-    text-align: center;
     color: #D9D9D9;
     cursor: pointer;
 }
 
-/*TODO*/
-.top-bar-labels :hover {
-    color: #484848 !important;
-    background-color: red !important;
+.top-bar-labels-selected  {
+    color:  #484848;
 }
 
 .separator {
@@ -66,15 +62,12 @@ section.top-bar-common {
 }
 
 .email {
-    font-family: Roboto, serif;
-    font-style: normal;
     font-weight: 300;
     font-size: 16px;
     line-height: 19px;
     color: #484848;
     margin-left: 13px;
     cursor: pointer;
-
 }
 
 .avatar {
@@ -86,8 +79,6 @@ section.top-bar-common {
 }
 
 .giraffes-label {
-    font-family: Roboto, serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 32px;
     line-height: 37px;

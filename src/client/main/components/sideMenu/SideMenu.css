@@ -27,13 +27,9 @@
 }
 .side-menu-text{
     margin-left: 25px;
-    font-family: Roboto, serif;
-    font-style: normal;
     font-weight: 300;
     font-size: 17px;
     line-height: 20px;
-    text-align: center;
-    color: #FFFFFF;
 }
 
 .side-menu-content{
@@ -48,23 +44,17 @@
 }
 
 .text-one{
-    font-family: Roboto, serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 10px;
     line-height: 12px;
-    text-align: center;
-    color: #FFFFFF;
 }
 
 .text-two{
-    font-family: Roboto, serif;
-    font-style: normal;
     font-weight: 300;
     font-size: 10px;
     line-height: 12px;
-    color: #FFFFFF;
     margin-top: 6px;
+    text-align: left;
 }
 
 .side-menu-flex-row{

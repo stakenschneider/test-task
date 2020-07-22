@@ -50,9 +50,7 @@ function App() {
                         )
                         })}
                     </section>
-
-                    <AviaryInfoCard/>
-
+                    {/*<AviaryInfoCard/>*/}
                 </div>
                 </div>
                 {/*<div className='renewal-background'/>*/}

@@ -1,7 +1,6 @@
 .aviary-background {
     width: 506px;
     height: 150px;
-
     margin-left: 587px;
     background: #668663;
     border-top-left-radius: 28px;
@@ -9,36 +8,29 @@
     padding-bottom: 10px;
 }
 
-.aviary-info-flex-row{
+.aviary-info-flex-row {
     display: flex;
-    /*justify-content: end;*/
     align-items: flex-end;
 }
-.close{
-    /*margin: 16px 0 0 463px;*/
+
+.close {
     width: 16px;
     height: 21px;
     order: 1;
     margin-left: 122px;
     margin-top: 16px;
     align-self: flex-start;
-    /*justify-self: flex-end;*/
 }
 
-.percentage{
+.percentage {
     margin-left: 36px;
     margin-top: 22px;
-    /*margin: 0 0 0 30px;*/
-    font-family: Roboto, serif;
-    font-style: normal;
-    font-weight: normal;
+
     font-size: 50px;
     line-height: 59px;
-    text-align: center;
-    color: #FFFFFF;
 }
 
-.percentage-label{
+.percentage-label {
     margin: 0 0 10px 18px;
     font-weight: bold;
     font-size: 20px;
@@ -46,7 +38,7 @@
     color: #FFFFFF;
 }
 
-.percentage-bar-parent{
+.percentage-bar-parent {
     width: 323px;
     height: 31px;
     background: #435F40;
@@ -54,7 +46,8 @@
     display: flex;
     align-items: center;
 }
-.percentage-bar-child{
+
+.percentage-bar-child {
     width: 238px;
     height: 23px;
     margin-left: 5px;
@@ -62,7 +55,7 @@
     border-radius: 35px;
 }
 
-.info-button{
+.info-button {
     width: 110px;
     height: 31px;
     margin-left: 23px;
@@ -70,23 +63,13 @@
     border-radius: 35px;
 }
 
-.info-button-label{
-    position: absolute;
-    width: 74px;
-    height: 14px;
-    left: 1274px;
-    top: 840px;
-
-    font-family: Roboto, serif;
-    font-style: normal;
-    font-weight: normal;
+.info-button-label {
+    margin: 9px 18px;
     font-size: 12px;
     line-height: 14px;
-    text-align: center;
-    color: #FFFFFF;
 }
 
-.percentage-bar-flex-row{
+.percentage-bar-flex-row {
     display: flex;
-    margin: 5px 0 0 30px ;
+    margin: 5px 0 0 30px;
 }

@@ -8,7 +8,7 @@ function TopBar({aviaries: aviaries}) {
                 <section className='top-bar-common'>
                     {aviaries.map((aviary) => {
                         return (
-                            <div className='top-bar-labels'>{aviary.name}</div>
+                            <div className='common-text top-bar-labels'>{aviary.name}</div>
                         )
                     })}
                     <div className='add-aviary'>
@@ -26,12 +26,12 @@ function TopBar({aviaries: aviaries}) {
                                 fill="#567354"/>
                         </svg>
                     <div className='avatar'/>
-                    <div className='email '>hello@giraffe.com</div>
+                    <div className='common-text email '>hello@giraffe.com</div>
                 </div>
             </div>
             <div className='separator'/>
             <div className='giraffe-label-container'>
-                <div className='giraffes-label'>Жирафы</div>
+                <div className='common-text giraffes-label'>Жирафы</div>
                 <div className='add-giraffe'>
                     <svg>
                         <path
