@@ -1,0 +1,78 @@
+.side-menu-button {
+    display: flex;
+    align-items: center;
+    margin-left: 32px;
+    margin-top: 26px;
+    margin-right: 25px;
+    width: 237px;
+    height: 51px;
+    background: #567354;
+    border-radius: 52px;
+    cursor: pointer;
+}
+
+/*TODO*/
+.side-menu-button :hover{
+    background: #FFFFFF;
+    color: #567354;
+}
+
+.side-menu-svg :hover{
+    fill: #435F40;
+}
+
+.side-menu-svg{
+    margin-left: 16px;
+    height: 28px;
+}
+.side-menu-text{
+    margin-left: 25px;
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.side-menu-content{
+    width: 294px;
+}
+
+.giraffe-logo{
+    width: 59px;
+    height: 59px;
+    cursor: pointer;
+    background: url(../../images/giraffe-logo-2.png);
+}
+
+.text-one{
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.text-two{
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 12px;
+    color: #FFFFFF;
+    margin-top: 6px;
+}
+
+.side-menu-flex-row{
+    display: flex;
+    align-items: center;
+    margin: 28px 0 55px 34px;
+}
+
+.side-menu-top-text{
+    margin-left: 10px;
+}
