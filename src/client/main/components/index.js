@@ -7,6 +7,7 @@ import {GiraffeModel} from "../models/GiraffeModel";
 import TopBar from "./topBar/TopBar";
 import AviaryInfoCard from "./aviaryInfoCard/AviaryInfoCard";
 import SideMenu from "./sideMenu/SideMenu";
+import DropdownMenu from "./dropdownMenu/DropdownMenu";
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
         <div>
             <div className='main-background'>
                 <div className='flex-row'>
-                <SideMenu></SideMenu>
+                <SideMenu/>
                 <div className='content-background'>
                     <TopBar aviaries={aviaries}/>
 
