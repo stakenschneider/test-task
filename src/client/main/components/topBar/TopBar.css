@@ -34,8 +34,8 @@ section.top-bar-common {
     cursor: pointer;
 }
 
-.top-bar-labels-selected  {
-    color:  #484848;
+.top-bar-labels-selected {
+    color: #484848;
 }
 
 .separator {
@@ -43,6 +43,13 @@ section.top-bar-common {
     width: 1042px;
     height: 3px;
     background: #D9D9D9;
+    border-radius: 18px;
+}
+
+.separator-selected{
+    width: 67px;
+    height: 100%;
+    background: #567354;
     border-radius: 18px;
 }
 

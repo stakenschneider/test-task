@@ -28,9 +28,9 @@ function App() {
     ])
 
     const [aviaries, setAviary] = React.useState([
-        {name: 'Вольер 1'},
-        {name: 'Вольер 2'},
-        {name: 'Вольер 3'}
+        {name: 'Вольер 1', selected: true},
+        {name: 'Вольер 2', selected: false},
+        {name: 'Вольер 3', selected: false}
     ])
 
     return (
@@ -50,7 +50,7 @@ function App() {
                         )
                         })}
                     </section>
-                    {/*<AviaryInfoCard/>*/}
+                    <AviaryInfoCard/>
                 </div>
                 </div>
                 {/*<div className='renewal-background'/>*/}
