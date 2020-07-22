@@ -24,12 +24,14 @@ function AddAviary({aviaries, setAviary}) {
         aviaries.map((aviary) =>
             aviary.selected = false
         )
+
+
         setAviary(aviaries.concat([
             {
-                name: 'Вольер ' + (aviaries.length + 1),
+                id: (aviaries.length + 1),
                 selected: true
             }
-        ]))
+            ]))
     }
 
     return (

@@ -10,9 +10,9 @@ import SideMenu from "./sideMenu/SideMenu";
 
 function App() {
     const [aviaries, setAviary] = React.useState([
-        {name: 'Вольер 1', selected: true},
-        {name: 'Вольер 2', selected: false},
-        {name: 'Вольер 3', selected: false}
+        {id:'1', selected: true},
+        {id:'2', selected: false},
+        {id:'3', selected: false}
     ])
 
     const [giraffes, setGiraffe] = React.useState([

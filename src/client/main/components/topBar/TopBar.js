@@ -3,6 +3,18 @@ import './TopBar.css'
 import AddAviary from "../AddAviary";
 
 function TopBar({aviaries, setAviary}) {
+    function submitHandler(id) {
+        const id_ = +/\d+/.exec(id.currentTarget.innerText)
+        console.log( id_)
+
+        setAviary(
+            aviaries.map(aviary=>{
+                aviary.selected = id_ == aviary.id;
+                return aviary
+            }))
+
+    }
+
     return (
         <div className='top-bar-container'>
             <div className='top-bar-common'>
@@ -11,15 +23,16 @@ function TopBar({aviaries, setAviary}) {
                         if (aviary.selected) {
                             return (
                                 <div
-                                    className='common-text top-bar-labels top-bar-labels-selected'>{aviary.name}</div>
+                                    onClick={submitHandler}  className='common-text top-bar-labels top-bar-labels-selected'>Вольер {aviary.id}</div>
                             )
                         } else {
                             return (
-                                <div className={'common-text top-bar-labels'}>{aviary.name}</div>
+                                <div onClick={submitHandler} className={'common-text top-bar-labels'}>Вольер {aviary.id}</div>
                             )
                         }
                     })}
-                    <AddAviary aviaries={aviaries} setAviary={setAviary}/>
+                    {aviaries.length<9 ? <AddAviary aviaries={aviaries} setAviary={setAviary}/> : <div/>}
+
                 </section>
                 <div className='top-bar-common-right'>
                     <svg className='bell'>
