@@ -75,6 +75,10 @@ section.top-bar-common {
     background: url(../../images/giraffe-logo.png);
 }
 
+.add-giraffe-top :active{
+    background-color: #5b7859;
+}
+
 .add-giraffe {
     width: 37px;
     height: 37px;
