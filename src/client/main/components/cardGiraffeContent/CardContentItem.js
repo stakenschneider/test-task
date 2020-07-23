@@ -97,8 +97,6 @@ function CardContentItem({giraffeInfo, editGiraffe}) {
                                className='specifications-bar-content'/> :
                         <input placeholder={giraffeInfo.height} className='specifications-bar-content' readOnly/>}
                 </div>
-
-
                 <div className='pair'>
                     <div className='textLabel'><b>Цвет: </b></div>
                     {giraffeInfo.isNew ?
@@ -118,7 +116,6 @@ function CardContentItem({giraffeInfo, editGiraffe}) {
                         <input onChange={handleChange.bind(this, "temper")} className='input-pair-labels'/> :
                         <input placeholder={giraffeInfo.temper} className='input-pair-labels' readOnly/>}
                 </div>
-
                 {giraffeInfo.isNew ?
                     buttonGreen ? <div onClick={saveGiraffe} className='button-save button-save-green'>
                         <div>Сохранить</div>
@@ -126,7 +123,6 @@ function CardContentItem({giraffeInfo, editGiraffe}) {
                         : <div onClick={saveGiraffe} className='button-save'>
                         <div>Сохранить</div>
                     </div> : <div style={{marginBottom: '19px'}}/>}
-
             </div>
         </form>
     )

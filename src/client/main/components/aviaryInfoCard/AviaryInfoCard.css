@@ -38,21 +38,13 @@
     color: #FFFFFF;
 }
 
-.percentage-bar-parent {
+.my {
     width: 323px;
     height: 31px;
     background: #435F40;
     border-radius: 35px;
     display: flex;
     align-items: center;
-}
-
-.percentage-bar-child {
-    width: 238px;
-    height: 23px;
-    margin-left: 5px;
-    background: #F3DBC7;
-    border-radius: 35px;
 }
 
 .info-button {

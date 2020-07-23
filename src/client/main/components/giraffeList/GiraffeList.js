@@ -18,19 +18,6 @@ export default function GiraffeList() {
             setGiraffe([
                 new GiraffeModel(new Date(), 'Имя', '-', '-', '-', '', '', '', '1.img', true),
             ].concat(giraffes));
-
-
-
-        // store.dispatch({type: ADD_GIRAFFE})
-        //
-        // store.subscribe(() => {
-        //     const state = store.getState()
-        //     console.log(giraffes)
-        // setGiraffe(giraffes.concat([
-        //     new GiraffeModel('Masha', 1, 1, 'ж', 'Стандарт', 'Растительная', 'Кокетка', '1.img'),
-        // ]))
-
-        // })
     }
 
     function editGiraffe(giraffeInfo) {

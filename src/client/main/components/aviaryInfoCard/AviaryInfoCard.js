@@ -1,5 +1,8 @@
 import React from 'react'
 import './AviaryInfoCard.css'
+import ProgressBar from "./ProgressBar";
+
+const testData = [{completed: 75}];
 
 function AviaryInfoCard() {
 
@@ -16,9 +19,10 @@ function AviaryInfoCard() {
             </div>
 
             <div className='percentage-bar-flex-row'>
-                <div className='percentage-bar-parent'>
-                    <div className='percentage-bar-child'/>
-                </div>
+                {testData.map((item, idx) => (
+                    <ProgressBar key={idx} completed={item.completed}/>
+                ))}
+
                 <div className='info-button'>
                     <div className='common-text info-button-label'>Информация</div>
                 </div>
