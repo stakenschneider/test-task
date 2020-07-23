@@ -12,7 +12,6 @@ function App() {
                     <SideMenu/>
                     <MainContent/>
                 </div>
-                {/*<div className='renewal-background'/>*/}
             </div>
         </div>
     )

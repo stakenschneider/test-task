@@ -15,17 +15,6 @@
     border-radius: 25px;
 }
 
-.renewal-background {
-    left: 349px;
-    top: 702px;
-    position: absolute;
-    width: 506px;
-    height: 287px;
-    background: #FFFFFF;
-    box-shadow: 0 4px 15px #869CB0;
-    border-radius: 28px;
-}
-
 .parent {
     display: flex;
     /*flex-direction: row-reverse;*/
