@@ -1,0 +1,152 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 236px;
+}
+
+.settings-svg {
+    height: 6px;
+    margin-left: 195px;
+    margin-top: 22px;
+    margin-bottom: 3px;
+}
+
+.giraffe-image {
+    width: 145px;
+    height: 145px;
+    margin-bottom: 27px;
+}
+
+.svg-top-labels {
+    width: 150px;
+    height: 29px;
+    margin-bottom: 13px;
+}
+
+.specifications-bar {
+    padding-left: 23px;
+    padding-right: 23px;
+    align-items: center;
+    width: 189px;
+    height: 39px;
+    background: #DCB18B;
+    border-radius: 58px;
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.specifications-bar-content {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #333333;
+    border: none;
+    background-color:#DCB18B;
+    width: 30px;
+}
+
+.specifications-bar-content::placeholder {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #333333;
+}
+
+
+.pair {
+    display: flex;
+    align-self: start;
+    margin-left: 33px;
+}
+
+.textLabel {
+    font-size: 15px;
+    line-height: 18px;
+    color: #435F40;
+    margin-bottom: 19px;
+}
+
+.input-pair-labels{
+    font-size: 15px;
+    line-height: 18px;
+    color: #435F40;
+    margin-bottom: 19px;
+    width: 130px;
+    border: none;
+    background-color:#F3DBC7;
+    padding-left: 5px;
+
+}
+
+.input-pair-labels::placeholder {
+    font-size: 16px;
+    line-height: 19px;
+    text-align: left;
+    color: #435F40;
+}
+
+.text {
+    font-size: 15px;
+    line-height: 18px;
+    color: #435F40;
+}
+
+.input-name::placeholder{
+    color: #435F40;
+    width: 230px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.input-name{
+    width: 230px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+    color: #435F40;
+    margin-bottom: 32px;
+    border: none;
+    background-color:#F3DBC7;
+}
+
+.li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
+}
+
+.input {
+    margin-right: 1rem;
+}
+
+.card {
+    /*box-shadow: 0 4px 15px #869CB0;*/
+    /*height: f;*/
+}
+
+.newCard {
+    box-shadow: 0 4px 15px #869CB0;
+}
+
+.buttonSave {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 129px;
+    height: 39px;
+    margin: 6px 0 20px 0;
+    background: #B4B4B4;
+    border-radius: 33px;
+    color: #FFFFFF;
+}
