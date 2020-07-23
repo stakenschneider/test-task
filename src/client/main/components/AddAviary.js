@@ -25,13 +25,12 @@ function AddAviary({aviaries, setAviary}) {
             aviary.selected = false
         )
 
-
         setAviary(aviaries.concat([
             {
                 id: (aviaries.length + 1),
                 selected: true
             }
-            ]))
+        ]));
     }
 
     return (

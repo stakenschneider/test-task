@@ -1,6 +1,7 @@
 import React from 'react'
 export class GiraffeModel{
-    constructor(name, weight,height,sex,color,diet,temper,image) {
+    constructor(id, name, weight,height,sex,color,diet,temper,image) {
+        this.id = id;
         this.name = name;
         this.weight = 600
         this.height = height

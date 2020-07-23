@@ -12,44 +12,48 @@
 }
 
 /*TODO*/
-.side-menu-button :hover{
+.side-menu-button :hover {
     background: #FFFFFF;
     color: #567354;
 }
 
-.side-menu-svg :hover{
+.side-menu-svg :hover {
     fill: #435F40;
 }
 
-.side-menu-svg{
+.side-menu-svg {
     margin-left: 16px;
     height: 28px;
 }
-.side-menu-text{
+
+.side-menu-text {
+    color: #FFFFFF;
     margin-left: 25px;
     font-weight: 300;
     font-size: 17px;
     line-height: 20px;
 }
 
-.side-menu-content{
+.side-menu-content {
     width: 294px;
 }
 
-.giraffe-logo{
+.giraffe-logo {
     width: 59px;
     height: 59px;
     cursor: pointer;
     background: url(../../images/giraffe-logo-2.png);
 }
 
-.text-one{
+.text-one {
     font-weight: bold;
     font-size: 10px;
     line-height: 12px;
+    color: #FFFFFF;
 }
 
-.text-two{
+.text-two {
+    color: #FFFFFF;
     font-weight: 300;
     font-size: 10px;
     line-height: 12px;
@@ -57,12 +61,12 @@
     text-align: left;
 }
 
-.side-menu-flex-row{
+.side-menu-flex-row {
     display: flex;
     align-items: center;
     margin: 28px 0 55px 34px;
 }
 
-.side-menu-top-text{
+.side-menu-top-text {
     margin-left: 10px;
 }

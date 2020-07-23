@@ -57,14 +57,6 @@ body {
     display: flex;
 }
 
-.common-text {
-    font-family: Roboto, serif;
-    font-style: normal;
-    font-weight: normal;
-    text-align: center;
-    color: #FFFFFF;
-}
-
 .giraffes-label {
     margin-left: 56px;
 

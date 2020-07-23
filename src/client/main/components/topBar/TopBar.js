@@ -1,60 +1,22 @@
 import React from 'react'
 import './TopBar.css'
+import '../styles.css'
 import AddAviary from "../AddAviary";
-import {createStore, applyMiddleware} from "redux";
-import {rootReducer} from "../redux/rootReducer";
-// import { composeWithDevTools } from 'redux-devtools-extension'
-// import thunk from 'redux-thunk'
-import {addGiraffe} from "../redux/actions";
-import {ADD_GIRAFFE} from "../redux/types";
-import {GiraffeModel} from "../../models/GiraffeModel";
-// import * as giraffes from "async/index";
 
-const counter = document.getElementById('counter')
-const addBtn = document.getElementById('add')
-const store = createStore(rootReducer, 0)
+function TopBar() {
+    const [aviaries, setAviary] = React.useState([
+        {id: '1', selected: true},
+        {id: '2', selected: false},
+        {id: '3', selected: false}
+    ])
 
-// const store = createStore(
-//     rootReducer,
-//     composeWithDevTools(
-//         applyMiddleware(thunk, logger)
-//     )
-// )
-// addBtn.addEventListener('click', () => {
-//     store.dispatch(addGiraffe())
-// })
-
-// store.subscribe(() => {
-//     const state = store.getState()
-//
-//     counter.textContent = state.counter
-//     document.body.className = state.theme.value;
-//
-// })
-
-
-function TopBar({aviaries, setAviary}) {
-    function submitHandler(id) {
+    function onClickAviary(id) {
         const id_ = +/\d+/.exec(id.currentTarget.innerText)
-        console.log(id_)
-        setAviary(
-            aviaries.map(aviary => {
-                aviary.selected = id_ == aviary.id;
-                return aviary
-            }))
-    }
-
-    function addGiraffeHandler(){
-        store.dispatch({ type: ADD_GIRAFFE })
-
-        store.subscribe(()=>{
-            const state = store.getState()
-            console.log(giraffes)
-            // setGiraffe(giraffes.concat([
-            //     new GiraffeModel('Masha', 1, 1, 'ж', 'Стандарт', 'Растительная', 'Кокетка', '1.img'),
-            // ]))
-
-        })
+        console.log(id_);
+        setAviary(aviaries.map(aviary => {
+            aviary.selected = id_ == aviary.id;
+            return aviary;
+        }));
     }
 
     return (
@@ -64,19 +26,19 @@ function TopBar({aviaries, setAviary}) {
                     {aviaries.map((aviary) => {
                         if (aviary.selected) {
                             return (
-                                <div
-                                    onClick={submitHandler}
-                                    className='common-text top-bar-labels top-bar-labels-selected'>Вольер {aviary.id}</div>
+                                <div key={aviary.id}
+                                     onClick={onClickAviary}
+                                     className='top-bar-labels top-bar-labels-selected'>Вольер {aviary.id}</div>
                             )
                         } else {
                             return (
-                                <div onClick={submitHandler}
-                                     className={'common-text top-bar-labels'}>Вольер {aviary.id}</div>
+                                <div key={aviary.id}
+                                     onClick={onClickAviary}
+                                     className={'top-bar-labels'}>Вольер {aviary.id}</div>
                             )
                         }
                     })}
                     {aviaries.length < 9 ? <AddAviary aviaries={aviaries} setAviary={setAviary}/> : <div/>}
-
                 </section>
                 <div className='top-bar-common-right'>
                     <svg className='bell'>
