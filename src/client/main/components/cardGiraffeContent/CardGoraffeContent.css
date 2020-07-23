@@ -11,6 +11,7 @@
     margin-left: 195px;
     margin-top: 22px;
     margin-bottom: 3px;
+    cursor: pointer;
 }
 
 .giraffe-image {
@@ -26,8 +27,8 @@
 }
 
 .specifications-bar {
-    padding-left: 23px;
-    padding-right: 23px;
+    padding-left: 10px;
+    padding-right: 10px;
     align-items: center;
     width: 189px;
     height: 39px;
@@ -139,7 +140,7 @@
     box-shadow: 0 4px 15px #869CB0;
 }
 
-.buttonSave {
+.button-save {
     justify-content: center;
     display: flex;
     align-items: center;
@@ -149,4 +150,9 @@
     background: #B4B4B4;
     border-radius: 33px;
     color: #FFFFFF;
+    cursor: pointer;
+}
+
+.button-save-green{
+    background: #567354;
 }

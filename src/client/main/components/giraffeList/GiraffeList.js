@@ -10,30 +10,48 @@ export default function GiraffeList() {
         new GiraffeModel(4, 'Леонид', 1000, 6, 'ж', 'Леонидовый', 'Ест детей', 'Нарцисс', '1.img'),
         new GiraffeModel(5, 'Мотильда', 600, 500, 'ж', 'Стандарт', 'Растительная', 'Кокетка', '1.img'),
         new GiraffeModel(6, 'Гога', 600, 500, 'ж', 'Жирафовый', 'Жвачная', 'Нарцисс', '1.img'),
-        new GiraffeModel(7, 'Мотильда', 600, 500, 'ж', 'Нездоровый', 'Шашлычная', 'Хулиган', '1.img'),
-        new GiraffeModel(8, 'Мотильда', 600, 500, 'ж', 'Стандарт', 'Ест детей', 'Вспылчивый', '1.img'),
-        new GiraffeModel(9, 'Мотильда', 600, 500, 'ж', 'Стандарт', 'Растительная', 'Кокетка', '1.img'),
-        new GiraffeModel(10, 'Гога', 600, 500, 'ж', 'Жирафовый', 'Жвачная', 'Нарцисс', '1.img'),
-        new GiraffeModel(11, 'Мотильда', 600, 500, 'ж', 'Нездоровый', 'Шашлычная', 'Хулиган', '1.img'),
         new GiraffeModel(12, 'Мотильда', 600, 500, 'ж', 'Стандарт', 'Ест детей', 'Вспылчивый', '1.img')
     ])
 
     function addGiraffeHandler(event) {
         event.preventDefault()
-        setGiraffe([
-            new GiraffeModel(new Date(),'Имя', '-', '-', '-', '', '', '', '1.img',true),
-        ].concat(giraffes));
+            setGiraffe([
+                new GiraffeModel(new Date(), 'Имя', '-', '-', '-', '', '', '', '1.img', true),
+            ].concat(giraffes));
+
+
 
         // store.dispatch({type: ADD_GIRAFFE})
         //
         // store.subscribe(() => {
         //     const state = store.getState()
         //     console.log(giraffes)
-            // setGiraffe(giraffes.concat([
-            //     new GiraffeModel('Masha', 1, 1, 'ж', 'Стандарт', 'Растительная', 'Кокетка', '1.img'),
-            // ]))
+        // setGiraffe(giraffes.concat([
+        //     new GiraffeModel('Masha', 1, 1, 'ж', 'Стандарт', 'Растительная', 'Кокетка', '1.img'),
+        // ]))
 
         // })
+    }
+
+    function editGiraffe(giraffeInfo) {
+        setGiraffe(
+            giraffes.map((item, index) => {
+                //TODO hardcode
+                if (index === 0) {
+                    item.color = giraffeInfo.color
+                    item.weight = giraffeInfo.weight
+                    item.name = giraffeInfo.name
+                    item.height = giraffeInfo.high
+                    item.sex = giraffeInfo.sex
+                    item.diet = giraffeInfo.diet
+                    item.temper = giraffeInfo.temper
+                    item.image = giraffeInfo.image
+                    item.isNew = false
+                }
+                return item
+            })
+        )
+        console.log(giraffes)
     }
 
     return (<div>
@@ -54,7 +72,7 @@ export default function GiraffeList() {
 
                     return (
                         <div className={classes} key={giraffe.id}>
-                            <CardContentItem giraffeInfo={giraffe}/>
+                            <CardContentItem giraffeInfo={giraffe} editGiraffe={editGiraffe}/>
                         </div>
                     )
                 })}

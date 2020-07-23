@@ -1,10 +1,61 @@
 import React from 'react'
 import './CardGoraffeContent.css'
+import {GiraffeModel} from "../../models/GiraffeModel";
 
-function CardContentItem({giraffeInfo}) {
 
-    return (<div className='card'>
-            <svg className='settings-svg'>
+function useInputValue(defaultValue = '') {
+    const [value, setValue] = React.useState(defaultValue)
+    return {
+        bind: {
+            name,
+            onChange: event => setValue(event.target.value)
+        },
+        value: () => value
+    }
+}
+
+function CardContentItem({giraffeInfo, editGiraffe}) {
+    let [fields, setFields] = React.useState(new GiraffeModel())
+    let buttonChange = false
+    const input = useInputValue('')
+    const [buttonGreen, setButtonColor] = React.useState(false)
+
+
+    function openSettings() {
+//    TODO
+    }
+
+    function handleChange(field, e) {
+        fields[field] = e.target.value;
+        setFields(fields)
+
+        if (handleValidation()) {
+            setButtonColor(true)
+        }
+    }
+
+    function handleValidation() {
+        let formIsValid = true;
+        if (!fields["name"] || !fields['height'] || !fields['weight'] || !fields['sex'] ||
+            !fields['diet'] || !fields['temper'] || !fields['color']) {
+            formIsValid = false;
+        }
+        return formIsValid;
+    }
+
+    function saveGiraffe(event) {
+        event.preventDefault()
+
+        if (handleValidation()) {
+            editGiraffe(fields)
+        } else {
+            alert("All fields are required")
+        }
+
+    }
+
+    return (<form className='card'>
+            <svg onClick={openSettings} className='settings-svg'>
                 <path
                     d="M10.793 1.45703C11.2852 1.94922 11.5312 2.54688 11.5312 3.25C11.5312 3.95312 11.2852 4.55078 10.793 5.04297C10.3008 5.53516 9.70312 5.78125 9 5.78125C8.29688 5.78125 7.69922 5.53516 7.20703 5.04297C6.71484 4.55078 6.46875 3.95312 6.46875 3.25C6.46875 2.54688 6.71484 1.94922 7.20703 1.45703C7.69922 0.964844 8.29688 0.71875 9 0.71875C9.70312 0.71875 10.3008 0.964844 10.793 1.45703ZM13.3945 1.45703C13.8867 0.964844 14.4844 0.71875 15.1875 0.71875C15.8906 0.71875 16.4883 0.964844 16.9805 1.45703C17.4727 1.94922 17.7188 2.54688 17.7188 3.25C17.7188 3.95312 17.4727 4.55078 16.9805 5.04297C16.4883 5.53516 15.8906 5.78125 15.1875 5.78125C14.4844 5.78125 13.8867 5.53516 13.3945 5.04297C12.9023 4.55078 12.6562 3.95312 12.6562 3.25C12.6562 2.54688 12.9023 1.94922 13.3945 1.45703ZM1.01953 1.45703C1.51172 0.964844 2.10938 0.71875 2.8125 0.71875C3.51562 0.71875 4.11328 0.964844 4.60547 1.45703C5.09766 1.94922 5.34375 2.54688 5.34375 3.25C5.34375 3.95312 5.09766 4.55078 4.60547 5.04297C4.11328 5.53516 3.51562 5.78125 2.8125 5.78125C2.10938 5.78125 1.51172 5.53516 1.01953 5.04297C0.527344 4.55078 0.28125 3.95312 0.28125 3.25C0.28125 2.54688 0.527344 1.94922 1.01953 1.45703Z"
                     fill="#435F40"/>
@@ -16,7 +67,8 @@ function CardContentItem({giraffeInfo}) {
                         d="M97 61.5V88.5C97 89.75 96.5625 90.8125 95.6875 91.6875C94.8125 92.5625 93.75 93 92.5 93H53.5C52.25 93 51.1875 92.5625 50.3125 91.6875C49.4375 90.8125 49 89.75 49 88.5V61.5C49 60.25 49.4375 59.1875 50.3125 58.3125C51.1875 57.4375 52.25 57 53.5 57H61.75L62.875 53.9062C63.125 53.3438 63.4375 52.8438 63.8125 52.4062C64.25 51.9688 64.75 51.625 65.3125 51.375C65.875 51.125 66.4688 51 67.0938 51H78.9062C79.8438 51 80.6875 51.2812 81.4375 51.8438C82.1875 52.3438 82.75 53.0312 83.125 53.9062L84.25 57H92.5C93.75 57 94.8125 57.4375 95.6875 58.3125C96.5625 59.1875 97 60.25 97 61.5ZM80.9688 82.9688C83.1562 80.7812 84.25 78.125 84.25 75C84.25 71.875 83.1562 69.2188 80.9688 67.0312C78.7812 64.8438 76.125 63.75 73 63.75C69.875 63.75 67.2188 64.8438 65.0312 67.0312C62.8438 69.2188 61.75 71.875 61.75 75C61.75 78.125 62.8438 80.7812 65.0312 82.9688C67.2188 85.1562 69.875 86.25 73 86.25C76.125 86.25 78.7812 85.1562 80.9688 82.9688ZM78.8125 69.1875C80.4375 70.8125 81.25 72.75 81.25 75C81.25 77.25 80.4375 79.1875 78.8125 80.8125C77.1875 82.4375 75.25 83.25 73 83.25C70.75 83.25 68.8125 82.4375 67.1875 80.8125C65.5625 79.1875 64.75 77.25 64.75 75C64.75 72.75 65.5625 70.8125 67.1875 69.1875C68.8125 67.5625 70.75 66.75 73 66.75C75.25 66.75 77.1875 67.5625 78.8125 69.1875Z"
                         fill="#D9D9D9"/>
                 </svg>
-                {giraffeInfo.isNew ? <input placeholder='Имя' className='input-name'/> :
+                {giraffeInfo.isNew ?
+                    <input onChange={handleChange.bind(this, "name")} placeholder='Имя' className='input-name'/> :
                     <input placeholder={giraffeInfo.name} className='input-name' readOnly/>}
                 <svg className='svg-top-labels'>
                     <path
@@ -31,15 +83,18 @@ function CardContentItem({giraffeInfo}) {
                 </svg>
                 <div className='specifications-bar'>
                     {giraffeInfo.isNew ?
-                        <input placeholder='-' className='specifications-bar-content'/> :
+                        <input onChange={handleChange.bind(this, "sex")} placeholder='-'
+                               className='specifications-bar-content'/> :
                         <input placeholder={giraffeInfo.sex.toUpperCase()} className='specifications-bar-content'
                                readOnly/>}
                     {giraffeInfo.isNew ?
-                        <input placeholder='-' className='specifications-bar-content'/> :
+                        <input onChange={handleChange.bind(this, "weight")} placeholder='-'
+                               className='specifications-bar-content'/> :
                         <input placeholder={giraffeInfo.weight} className='specifications-bar-content'
                                readOnly/>}
                     {giraffeInfo.isNew ?
-                        <input placeholder='-' className='specifications-bar-content'/> :
+                        <input onChange={handleChange.bind(this, "height")} placeholder='-'
+                               className='specifications-bar-content'/> :
                         <input placeholder={giraffeInfo.height} className='specifications-bar-content' readOnly/>}
                 </div>
 
@@ -47,29 +102,33 @@ function CardContentItem({giraffeInfo}) {
                 <div className='pair'>
                     <div className='textLabel'><b>Цвет: </b></div>
                     {giraffeInfo.isNew ?
-                        <input className='input-pair-labels'/> :
+                        <input onChange={handleChange.bind(this, "color")} className='input-pair-labels'/> :
                         <input placeholder={giraffeInfo.color} className='input-pair-labels' readOnly/>}
                 </div>
                 <div className='pair'>
                     <div className='textLabel'><b>Диета:</b></div>
                     {giraffeInfo.isNew ?
-                        <input className='input-pair-labels'/> :
+                        <input onChange={handleChange.bind(this, "diet")} className='input-pair-labels'/> :
                         <input placeholder={giraffeInfo.diet} className='input-pair-labels' readOnly/>}
 
                 </div>
                 <div className='pair'>
                     <div className='textLabel'><b>Характер:</b></div>
                     {giraffeInfo.isNew ?
-                        <input className='input-pair-labels'/> :
+                        <input onChange={handleChange.bind(this, "temper")} className='input-pair-labels'/> :
                         <input placeholder={giraffeInfo.temper} className='input-pair-labels' readOnly/>}
                 </div>
 
-                {giraffeInfo.isNew ? <div className='buttonSave'>
-                    <div>Сохранить</div>
-                </div> : <div style={{marginBottom: '19px'}}/>}
+                {giraffeInfo.isNew ?
+                    buttonGreen ? <div onClick={saveGiraffe} className='button-save button-save-green'>
+                        <div>Сохранить</div>
+                    </div>
+                        : <div onClick={saveGiraffe} className='button-save'>
+                        <div>Сохранить</div>
+                    </div> : <div style={{marginBottom: '19px'}}/>}
 
             </div>
-        </div>
+        </form>
     )
 }
 
