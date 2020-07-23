@@ -5,11 +5,11 @@ export default function SideMenu() {
     return (<div>
 
             <div className='side-menu-flex-row'>
-            <div className='giraffe-logo'/>
-            <div className='side-menu-top-text'>
-            <div className='text-one'>Ферма заслуженных жираффов</div>
-            <div className='text-two'>России и СНГ</div>
-            </div>
+                <div className='giraffe-logo'/>
+                <div className='side-menu-top-text'>
+                    <div className='text-one'>Ферма заслуженных жираффов</div>
+                    <div className='text-two'>России и СНГ</div>
+                </div>
             </div>
 
             <span className='side-menu-content'>
@@ -31,15 +31,18 @@ export default function SideMenu() {
                     </svg>
                     <span className='side-menu-text'>Управление</span>
                 </nav>
-                <nav className='side-menu-button'>
+
+                {/*TODO hardcode*/}
+                <nav className='side-menu-button side-menu-button-selected'>
                     <svg className='side-menu-svg' width="25" height="25" viewBox="0 0 25 25" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
-                        <path
+                        <path className='side-menu-svg-selected'
                             d="M23.9062 16.5625C24.125 17.1875 24.0156 17.7344 23.5781 18.2031L21.4219 20.0781C21.1406 20.3594 20.7969 20.5 20.3906 20.5H18C17.5 20.5 17.0938 20.2969 16.7812 19.8906L14.625 16.8906C13.9375 17.2969 13.2188 17.5 12.4688 17.5C11.5625 17.5 10.7344 17.25 9.98438 16.75C9.26562 16.25 8.71875 15.6094 8.34375 14.8281C8.3125 14.7031 8.21875 14.625 8.0625 14.5938C7.9375 14.5625 7.82812 14.5938 7.73438 14.6875L7.17188 15.25C7.04688 15.4062 7.03125 15.5625 7.125 15.7188C7.59375 16.625 8.25 17.375 9.09375 17.9688C9.96875 18.5625 10.9375 18.8906 12 18.9531V19L13.9219 22.8438C14.1719 23.3438 14.1406 23.8281 13.8281 24.2969C13.5469 24.7656 13.125 25 12.5625 25H1.5C1.09375 25 0.734375 24.8438 0.421875 24.5312C0.140625 24.25 0 23.9062 0 23.5V19.7031C0 17.7344 0.125 15.9844 0.375 14.4531C0.625 12.9219 1.03125 11.5 1.59375 10.1875C2.1875 8.84375 3 7.71875 4.03125 6.8125C5.0625 5.875 6.32812 5.125 7.82812 4.5625L17.2969 1.04688C17.6094 0.921875 17.7969 1.01562 17.8594 1.32812C18.2969 3.01562 17.7656 4.29687 16.2656 5.17188C16.9219 5.29688 17.5312 5.53125 18.0938 5.875C18.6875 6.21875 19.2031 6.65625 19.6406 7.1875C20.0781 7.6875 20.4062 8.25 20.625 8.875L23.9062 16.5625ZM14.5781 11.1719C14.7969 11.3906 15.0625 11.5 15.375 11.5C15.6875 11.5 15.9531 11.3906 16.1719 11.1719C16.3906 10.9531 16.5 10.6875 16.5 10.375C16.5 10.0625 16.3906 9.79688 16.1719 9.57812C15.9531 9.35938 15.6875 9.25 15.375 9.25C15.0625 9.25 14.7969 9.35938 14.5781 9.57812C14.3594 9.79688 14.25 10.0625 14.25 10.375C14.25 10.6875 14.3594 10.9531 14.5781 11.1719Z"
                             fill="#F3DBC7"/>
                     </svg>
-                    <span className='side-menu-text'>Жирафы</span>
+                    <span className='side-menu-text side-menu-text-selected'>Жирафы</span>
                 </nav>
+
                 <nav className='side-menu-button'>
                     <svg className='side-menu-svg' width="30" height="22" viewBox="0 0 30 22" fill="none"
                          xmlns="http://www.w3.org/2000/svg">

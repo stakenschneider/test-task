@@ -8,7 +8,7 @@
 }
 
 .content-background {
-    height: 876px;
+    /*height: 876px;*/
     margin-right: 13px;
     width: 1133px;
     background: #FFFFFF;
@@ -28,10 +28,11 @@
 
 .parent {
     display: flex;
+    /*flex-direction: row-reverse;*/
     justify-content: start;
     align-items: start;
     overflow-x: auto;
-    margin-top: 26px;
+    padding-top: 26px;
     margin-left: 18px;
     padding-bottom: 76px;
 }
@@ -40,10 +41,14 @@
     display: none;
 }
 
+.box-shadow-giraffe-card{
+    box-shadow: 0 4px 15px #869CB0;
+}
+
 .giraffe-card {
     margin-left: 33px;
     min-width: 236px;
-    height: 495px;
+    /*height: 495px;*/
     background: #F3DBC7;
     border-radius: 28px;
 }

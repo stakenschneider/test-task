@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css'
+
 const style = {
     addAviaryButton: {
         background: '#D9D9D9',
@@ -9,7 +10,7 @@ const style = {
         weight: '20px',
         display: 'flex',
         justifyContent: 'center',
-        alignItems:'center',
+        alignItems: 'center',
         padding: '5px'
     },
     svg: {

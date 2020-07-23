@@ -11,19 +11,27 @@
     cursor: pointer;
 }
 
-/*TODO*/
-.side-menu-button :hover {
+.side-menu-button-selected{
     background: #FFFFFF;
-    color: #567354;
 }
 
-.side-menu-svg :hover {
-    fill: #435F40;
-}
+/*TODO*/
+/*.side-menu-button :hover {*/
+/*    background: #FFFFFF;*/
+/*    color: #567354;*/
+/*}*/
+
+/*.side-menu-svg :hover {*/
+/*    fill: #435F40;*/
+/*}*/
 
 .side-menu-svg {
     margin-left: 16px;
     height: 28px;
+}
+
+.side-menu-svg-selected {
+    fill: #435F40;
 }
 
 .side-menu-text {
@@ -32,6 +40,10 @@
     font-weight: 300;
     font-size: 17px;
     line-height: 20px;
+}
+
+.side-menu-text-selected{
+    color: #567354;
 }
 
 .side-menu-content {
