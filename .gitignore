@@ -3,3 +3,4 @@ dist
 src/server/ssl
 uploads
 .idea
+*.DS_Store

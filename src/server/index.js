@@ -47,6 +47,12 @@ if (process.env.NODE_ENV == 'production') {
     //     rejectUnauthorized: false
     // };
     // const server = https.createServer(options, app);
+    app.use(function(req, res, err) {
+        res.status(err.status || 500);
+        res.send({
+            message: err.message
+        });
+    });
     app.listen(PORT, () => {
         console.log(`Server listening port: ${PORT}`);
     })
