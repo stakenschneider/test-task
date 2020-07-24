@@ -156,3 +156,19 @@
 .button-save-green{
     background: #567354;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    margin-left: 200px;
+}
