@@ -20,6 +20,15 @@ module.exports = (app) => {
             res.sendStatus(500)
         }
     })
+    app.get('/api/giraffes', async (req, res, next) => {
+        try {
+            const giraffes = await Giraffe.find()
+            return res.json(giraffes)
+        } catch(e) {
+            next(e)
+        }
+    })
+
 
     // Giraffe API
     app.post('/api/giraffe', async (req, res, next) => {

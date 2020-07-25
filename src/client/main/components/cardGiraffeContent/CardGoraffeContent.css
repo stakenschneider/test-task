@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
-    width: 236px;
 }
 
 .settings-svg {
@@ -132,6 +131,7 @@
 }
 
 .card {
+    width: 236px;
     /*box-shadow: 0 4px 15px #869CB0;*/
     /*height: f;*/
 }

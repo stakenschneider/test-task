@@ -3,40 +3,22 @@ import './CardGoraffeContent.css'
 import {GiraffeModel} from "../../models/GiraffeModel";
 import DropdownMenu from "../dropdownMenu/DropdownMenu";
 
-
-function useInputValue(defaultValue = '') {
-    const [value, setValue] = React.useState(defaultValue)
-    return {
-        bind: {
-            name,
-            onChange: event => setValue(event.target.value)
-        },
-        value: () => value
-    }
-}
-
-function CardContentItem({giraffeInfo, editGiraffe}) {
+function CardContentItem({giraffeInfo, saveGiraffe, deleteGiraffe, editGiraffe}) {
     let [fields, setFields] = React.useState(new GiraffeModel())
-    let buttonChange = false
-    const input = useInputValue('')
     const [buttonGreen, setButtonColor] = React.useState(false)
-
-
-    function openSettings() {
-//    TODO
-    }
 
     function handleChange(field, e) {
         fields[field] = e.target.value;
         setFields(fields)
 
-        if (handleValidation()) {
+        if (handleValidation() || giraffeInfo.isUpdated) {
             setButtonColor(true)
         }
     }
 
     function handleValidation() {
         let formIsValid = true;
+        //TODO check the type parameter
         if (!fields["name"] || !fields['height'] || !fields['weight'] || !fields['sex'] ||
             !fields['diet'] || !fields['temper'] || !fields['color']) {
             formIsValid = false;
@@ -44,30 +26,49 @@ function CardContentItem({giraffeInfo, editGiraffe}) {
         return formIsValid;
     }
 
-    function saveGiraffe(event) {
+    function _saveGiraffe(event) {
         event.preventDefault()
 
-        if (handleValidation()) {
-            editGiraffe(fields)
+        if (buttonGreen || giraffeInfo.isUpdated) {
+            if (giraffeInfo.isUpdated) {
+                fields['id'] = giraffeInfo._id;
+                fields['isUpdated'] = true;
+            } else {
+                fields['isNew'] = true;
+            }
+            saveGiraffe(fields)
+
+            setFields(fields)
         } else {
             alert("All fields are required")
         }
 
     }
 
+    function _editGiraffe() {
+        editGiraffe(giraffeInfo._id)
+    }
+
+
+    function _deleteGiraffe() {
+        deleteGiraffe(giraffeInfo._id)
+    }
+
+    const state = giraffeInfo.isNew || giraffeInfo.isUpdated
+
     return (
         <form className='card'>
             <div className="dropdown">
-                <svg onClick={openSettings} className='settings-svg'>
+                <svg className='settings-svg'>
                     <path
                         d="M10.793 1.45703C11.2852 1.94922 11.5312 2.54688 11.5312 3.25C11.5312 3.95312 11.2852 4.55078 10.793 5.04297C10.3008 5.53516 9.70312 5.78125 9 5.78125C8.29688 5.78125 7.69922 5.53516 7.20703 5.04297C6.71484 4.55078 6.46875 3.95312 6.46875 3.25C6.46875 2.54688 6.71484 1.94922 7.20703 1.45703C7.69922 0.964844 8.29688 0.71875 9 0.71875C9.70312 0.71875 10.3008 0.964844 10.793 1.45703ZM13.3945 1.45703C13.8867 0.964844 14.4844 0.71875 15.1875 0.71875C15.8906 0.71875 16.4883 0.964844 16.9805 1.45703C17.4727 1.94922 17.7188 2.54688 17.7188 3.25C17.7188 3.95312 17.4727 4.55078 16.9805 5.04297C16.4883 5.53516 15.8906 5.78125 15.1875 5.78125C14.4844 5.78125 13.8867 5.53516 13.3945 5.04297C12.9023 4.55078 12.6562 3.95312 12.6562 3.25C12.6562 2.54688 12.9023 1.94922 13.3945 1.45703ZM1.01953 1.45703C1.51172 0.964844 2.10938 0.71875 2.8125 0.71875C3.51562 0.71875 4.11328 0.964844 4.60547 1.45703C5.09766 1.94922 5.34375 2.54688 5.34375 3.25C5.34375 3.95312 5.09766 4.55078 4.60547 5.04297C4.11328 5.53516 3.51562 5.78125 2.8125 5.78125C2.10938 5.78125 1.51172 5.53516 1.01953 5.04297C0.527344 4.55078 0.28125 3.95312 0.28125 3.25C0.28125 2.54688 0.527344 1.94922 1.01953 1.45703Z"
                         fill="#435F40"/>
                 </svg>
                 <div className="dropdown-content">
-                    <DropdownMenu/>
+                    <DropdownMenu editGiraffe={_editGiraffe} deleteGiraffe={_deleteGiraffe}/>
                 </div>
             </div>
-            
+
             <div className='container'>
                 <svg className='giraffe-image'>
                     <rect width="145" height="145" rx="72.5" fill="white"/>
@@ -75,9 +76,10 @@ function CardContentItem({giraffeInfo, editGiraffe}) {
                         d="M97 61.5V88.5C97 89.75 96.5625 90.8125 95.6875 91.6875C94.8125 92.5625 93.75 93 92.5 93H53.5C52.25 93 51.1875 92.5625 50.3125 91.6875C49.4375 90.8125 49 89.75 49 88.5V61.5C49 60.25 49.4375 59.1875 50.3125 58.3125C51.1875 57.4375 52.25 57 53.5 57H61.75L62.875 53.9062C63.125 53.3438 63.4375 52.8438 63.8125 52.4062C64.25 51.9688 64.75 51.625 65.3125 51.375C65.875 51.125 66.4688 51 67.0938 51H78.9062C79.8438 51 80.6875 51.2812 81.4375 51.8438C82.1875 52.3438 82.75 53.0312 83.125 53.9062L84.25 57H92.5C93.75 57 94.8125 57.4375 95.6875 58.3125C96.5625 59.1875 97 60.25 97 61.5ZM80.9688 82.9688C83.1562 80.7812 84.25 78.125 84.25 75C84.25 71.875 83.1562 69.2188 80.9688 67.0312C78.7812 64.8438 76.125 63.75 73 63.75C69.875 63.75 67.2188 64.8438 65.0312 67.0312C62.8438 69.2188 61.75 71.875 61.75 75C61.75 78.125 62.8438 80.7812 65.0312 82.9688C67.2188 85.1562 69.875 86.25 73 86.25C76.125 86.25 78.7812 85.1562 80.9688 82.9688ZM78.8125 69.1875C80.4375 70.8125 81.25 72.75 81.25 75C81.25 77.25 80.4375 79.1875 78.8125 80.8125C77.1875 82.4375 75.25 83.25 73 83.25C70.75 83.25 68.8125 82.4375 67.1875 80.8125C65.5625 79.1875 64.75 77.25 64.75 75C64.75 72.75 65.5625 70.8125 67.1875 69.1875C68.8125 67.5625 70.75 66.75 73 66.75C75.25 66.75 77.1875 67.5625 78.8125 69.1875Z"
                         fill="#D9D9D9"/>
                 </svg>
-                {giraffeInfo.isNew ?
-                    <input onChange={handleChange.bind(this, "name")} placeholder='Имя' className='input-name'/> :
-                    <input placeholder={giraffeInfo.name} className='input-name' readOnly/>}
+                {state ?
+                    <input onChange={handleChange.bind(this, "name")} placeholder={giraffeInfo.name}
+                           className='input-name'/> :
+                    <input placeholder={giraffeInfo.name} className='input-name' disabled/>}
                 <svg className='svg-top-labels'>
                     <path
                         d="M27.9766 2.125C28.3672 2.125 28.5625 2.32031 28.5625 2.71094V6.56836C28.5625 6.73112 28.4974 6.8776 28.3672 7.00781C28.2695 7.10547 28.1393 7.1543 27.9766 7.1543C27.8138 7.1543 27.6836 7.10547 27.5859 7.00781L26.7559 6.17773L24.3633 8.52148C25.0794 9.66081 25.4375 10.9141 25.4375 12.2812C25.4375 14.2344 24.7539 15.8945 23.3867 17.2617C22.0195 18.6289 20.3594 19.3125 18.4062 19.3125C16.7786 19.3125 15.3301 18.8079 14.0605 17.7988C14.7441 16.985 15.265 16.0573 15.623 15.0156C16.3717 15.7969 17.2995 16.1875 18.4062 16.1875C19.4805 16.1875 20.3919 15.8132 21.1406 15.0645C21.9219 14.2832 22.3125 13.3555 22.3125 12.2812C22.3125 11.207 21.9219 10.2956 21.1406 9.54688C20.3919 8.76562 19.4805 8.375 18.4062 8.375C17.2995 8.375 16.3717 8.76562 15.623 9.54688C15.265 8.53776 14.7441 7.61003 14.0605 6.76367C15.3301 5.75456 16.7786 5.25 18.4062 5.25C19.7734 5.25 21.0267 5.60807 22.166 6.32422L24.5098 3.93164L23.6797 3.10156C23.5169 2.9388 23.4844 2.74349 23.582 2.51562C23.6797 2.25521 23.8587 2.125 24.1191 2.125H27.9766ZM2.48828 7.30078C3.85547 5.93359 5.51562 5.25 7.46875 5.25C9.42188 5.25 11.082 5.93359 12.4492 7.30078C13.8164 8.66797 14.5 10.3281 14.5 12.2812C14.5 13.9414 13.9792 15.4062 12.9375 16.6758C11.9284 17.9453 10.6263 18.7591 9.03125 19.1172V21.6562H10.7891C11.1797 21.6562 11.375 21.8516 11.375 22.2422V24.1953C11.375 24.5859 11.1797 24.7812 10.7891 24.7812H9.03125V26.5391C9.03125 26.9297 8.83594 27.125 8.44531 27.125H6.49219C6.10156 27.125 5.90625 26.9297 5.90625 26.5391V24.7812H4.14844C3.75781 24.7812 3.5625 24.5859 3.5625 24.1953V22.2422C3.5625 21.8516 3.75781 21.6562 4.14844 21.6562H5.90625V19.1172C4.3112 18.7591 2.99284 17.9453 1.95117 16.6758C0.942057 15.4062 0.4375 13.9414 0.4375 12.2812C0.4375 10.3281 1.12109 8.66797 2.48828 7.30078ZM4.68555 15.0645C5.4668 15.8132 6.39453 16.1875 7.46875 16.1875C8.54297 16.1875 9.45443 15.8132 10.2031 15.0645C10.9844 14.2832 11.375 13.3555 11.375 12.2812C11.375 11.207 10.9844 10.2956 10.2031 9.54688C9.45443 8.76562 8.54297 8.375 7.46875 8.375C6.39453 8.375 5.4668 8.76562 4.68555 9.54688C3.93685 10.2956 3.5625 11.207 3.5625 12.2812C3.5625 13.3555 3.93685 14.2832 4.68555 15.0645Z"
@@ -90,47 +92,52 @@ function CardContentItem({giraffeInfo, editGiraffe}) {
                         fill="#435F40"/>
                 </svg>
                 <div className='specifications-bar'>
-                    {giraffeInfo.isNew ?
-                        <input onChange={handleChange.bind(this, "sex")} placeholder='-'
+                    {state ?
+                        <input onChange={handleChange.bind(this, "sex")} placeholder={giraffeInfo.sex}
                                className='specifications-bar-content'/> :
                         <input placeholder={giraffeInfo.sex.toUpperCase()} className='specifications-bar-content'
-                               readOnly/>}
-                    {giraffeInfo.isNew ?
-                        <input onChange={handleChange.bind(this, "weight")} placeholder='-'
+                               disabled/>}
+                    {state ?
+                        <input onChange={handleChange.bind(this, "weight")} placeholder={giraffeInfo.weight}
                                className='specifications-bar-content'/> :
                         <input placeholder={giraffeInfo.weight} className='specifications-bar-content'
-                               readOnly/>}
-                    {giraffeInfo.isNew ?
-                        <input onChange={handleChange.bind(this, "height")} placeholder='-'
+                               disabled/>}
+                    {state ?
+                        <input onChange={handleChange.bind(this, "height")} placeholder={giraffeInfo.height}
                                className='specifications-bar-content'/> :
-                        <input placeholder={giraffeInfo.height} className='specifications-bar-content' readOnly/>}
+                        <input placeholder={giraffeInfo.height} className='specifications-bar-content' disabled/>}
                 </div>
                 <div className='pair'>
                     <div className='textLabel'><b>Цвет: </b></div>
-                    {giraffeInfo.isNew ?
-                        <input onChange={handleChange.bind(this, "color")} className='input-pair-labels'/> :
-                        <input placeholder={giraffeInfo.color} className='input-pair-labels' readOnly/>}
+                    {state ?
+                        <input onChange={handleChange.bind(this, "color")} placeholder={giraffeInfo.color}
+                               className='input-pair-labels'/> :
+                        <input placeholder={giraffeInfo.color} className='input-pair-labels' disabled/>}
                 </div>
                 <div className='pair'>
                     <div className='textLabel'><b>Диета:</b></div>
-                    {giraffeInfo.isNew ?
-                        <input onChange={handleChange.bind(this, "diet")} className='input-pair-labels'/> :
-                        <input placeholder={giraffeInfo.diet} className='input-pair-labels' readOnly/>}
+                    {state ?
+                        <input onChange={handleChange.bind(this, "diet")} placeholder={giraffeInfo.diet}
+                               className='input-pair-labels'/> :
+                        <input placeholder={giraffeInfo.diet} className='input-pair-labels' disabled/>}
 
                 </div>
                 <div className='pair'>
                     <div className='textLabel'><b>Характер:</b></div>
-                    {giraffeInfo.isNew ?
-                        <input onChange={handleChange.bind(this, "temper")} className='input-pair-labels'/> :
-                        <input placeholder={giraffeInfo.temper} className='input-pair-labels' readOnly/>}
+                    {state ?
+                        <input onChange={handleChange.bind(this, "temper")} placeholder={giraffeInfo.temper}
+                               className='input-pair-labels'/> :
+                        <input placeholder={giraffeInfo.temper} className='input-pair-labels' disabled/>}
                 </div>
-                {giraffeInfo.isNew ?
-                    buttonGreen ? <div onClick={saveGiraffe} className='button-save button-save-green'>
+                {state ?
+                    buttonGreen ? <
+                            div onClick={_saveGiraffe} className='button-save button-save-green'>
                             <div>Сохранить</div>
-                        </div>
-                        : <div onClick={saveGiraffe} className='button-save'>
+                        </div> :
+                        <div onClick={_saveGiraffe} className='button-save'>
                             <div>Сохранить</div>
-                        </div> : <div style={{marginBottom: '19px'}}/>}
+                        </div> :
+                    <div style={{marginBottom: '19px'}}/>}
             </div>
         </form>
     )
