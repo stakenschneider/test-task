@@ -1,0 +1,19 @@
+.widgets-background{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.space-update{
+    margin: 0 40px 26px;
+    width: 506px;
+}
+
+.content-background {
+    height: fit-content;
+    margin-right: 13px;
+    width: 1133px;
+    background: #FFFFFF;
+    border-radius: 25px;
+}

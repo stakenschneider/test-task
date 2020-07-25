@@ -85,16 +85,8 @@ export default function GiraffeList() {
                 setGiraffe(
                     giraffes.map((item) => {
                         if (item._id === res.data._id) {
-                            item.color = res.data.color
-                            item.weight = res.data.weight
-                            item.name = res.data.name
-                            item.height = res.data.high
-                            item.sex = res.data.sex
-                            item.diet = res.data.diet
-                            item.temper = res.data.temper
-                            item.image = res.data.image
+                            item = res.data
                             item.isUpdated = false
-                            item.isNew = false
                         }
                         return item
                     })
@@ -132,8 +124,8 @@ export default function GiraffeList() {
                     giraffe.isNew || giraffe.isUpdated ? classes.push('giraffe-card box-shadow-giraffe-card') : classes.push('giraffe-card')
 
                     return (
-                        <div className={classes} key={giraffe.id}>
-                            <CardContentItem giraffeInfo={giraffe} saveGiraffe={saveGiraffe}
+                        <div className={classes} key={giraffe._id}>
+                            <CardContentItem  giraffeInfo={giraffe} saveGiraffe={saveGiraffe}
                                              deleteGiraffe={deleteGiraffe} editGiraffe={editGiraffe}/>
                         </div>
                     )

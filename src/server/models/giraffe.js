@@ -19,7 +19,7 @@ const GiraffeSchema = new Schema({
     sex: {
         type: String,
         default: 'M',
-        enum: ['W', 'M']
+        enum: ['W', 'M', 'м', 'ж', 'М', 'Ж', 'm', 'w']
     },
     color: {
         type: String,

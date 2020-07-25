@@ -132,12 +132,6 @@
 
 .card {
     width: 236px;
-    /*box-shadow: 0 4px 15px #869CB0;*/
-    /*height: f;*/
-}
-
-.newCard {
-    box-shadow: 0 4px 15px #869CB0;
 }
 
 .button-save {
@@ -146,7 +140,7 @@
     align-items: center;
     width: 129px;
     height: 39px;
-    margin: 6px 0 20px 0;
+    margin: 0 0 20px 0;
     background: #B4B4B4;
     border-radius: 33px;
     color: #FFFFFF;

@@ -1,49 +1,42 @@
 .main-background {
     width: 100%;
-    min-height: 100%;
+    min-height: 820px;
     background: #668663;
-    border-top-left-radius: 35px;
-    border-top-right-radius: 35px;
+    border-radius: 35px;
     padding: 12px 0 12px 0;
-}
-
-.content-background {
-    /*height: 876px;*/
-    margin-right: 13px;
-    width: 1133px;
-    background: #FFFFFF;
-    border-radius: 25px;
 }
 
 .parent {
     display: flex;
-    /*flex-direction: row-reverse;*/
     justify-content: start;
     align-items: start;
     overflow-x: auto;
     padding-top: 26px;
     margin-left: 18px;
-    padding-bottom: 76px;
+    padding-bottom: 35px;
 }
 
 .parent::-webkit-scrollbar {
     display: none;
 }
 
-.box-shadow-giraffe-card{
+.box-shadow-giraffe-card {
+    box-shadow: 0 4px 15px #869CB0;
+}
+
+.giraffe-card:hover {
     box-shadow: 0 4px 15px #869CB0;
 }
 
 .giraffe-card {
     margin-left: 33px;
     min-width: 236px;
-    /*height: 495px;*/
     background: #F3DBC7;
     border-radius: 28px;
 }
 
 body {
-    margin: 0 !important;
+    margin: 0;
     background-color: black;
 }
 
@@ -53,7 +46,6 @@ body {
 
 .giraffes-label {
     margin-left: 56px;
-
     font-weight: bold;
     font-size: 32px;
     line-height: 37px;
