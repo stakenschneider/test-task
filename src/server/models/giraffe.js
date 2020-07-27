@@ -36,6 +36,10 @@ const GiraffeSchema = new Schema({
     image: {
         type: String,
         default: 'NoImage'
+    },
+    aviary: {
+        type: Number,
+        default: '1'
     }
 }, { versionKey: false });
 

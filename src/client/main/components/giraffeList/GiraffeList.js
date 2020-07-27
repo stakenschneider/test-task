@@ -2,20 +2,14 @@ import CardContentItem from "../cardGiraffeContent/CardContentItem";
 import React from "react";
 import {GiraffeModel} from "../../models/GiraffeModel";
 import axios from 'axios'
+import {storeForAviary} from "../redux/store";
 
-export default function GiraffeList() {
-    let [giraffes, setGiraffe] = React.useState([])
+export default function GiraffeList({giraffes, setGiraffe}) {
+    const [num, setNum] = React.useState(1)
 
-    React.useEffect(() => {
-        findGiraffes().then(
-            console.log('done')
-        )
-    }, [])
-
-    const findGiraffes = async () => {
-        const res = await axios.get('/api/giraffes')
-        setGiraffe(res.data.reverse())
-    }
+    storeForAviary.subscribe(() => {
+            setNum(storeForAviary.getState())
+        })
 
     const updateGiraffe = async (id, giraffe) => {
         return await axios.put(`/api/giraffe/${id}`, giraffe)
@@ -35,7 +29,8 @@ export default function GiraffeList() {
         if (giraffes.filter((item) => item.isNew || item.isUpdated).length === 0) {
             event.preventDefault()
             setGiraffe([
-                new GiraffeModel(new Date(), 'Имя', '-', '-', '-', '', '', '', '', true, false),
+                new GiraffeModel(new Date(), 'Имя', '-', '-', '-',
+                    '', '', '', '', true, false, num),
             ].concat(giraffes));
         }
     }
@@ -120,15 +115,18 @@ export default function GiraffeList() {
             </div>
             <section className='parent'>
                 {giraffes.map((giraffe) => {
-                    let classes = []
-                    giraffe.isNew || giraffe.isUpdated ? classes.push('giraffe-card box-shadow-giraffe-card') : classes.push('giraffe-card')
+                    if (giraffe.aviary === num) {
+                        let classes = []
+                        giraffe.isNew || giraffe.isUpdated ? classes.push('giraffe-card box-shadow-giraffe-card')
+                            : classes.push('giraffe-card')
 
-                    return (
-                        <div className={classes} key={giraffe._id}>
-                            <CardContentItem  giraffeInfo={giraffe} saveGiraffe={saveGiraffe}
-                                             deleteGiraffe={deleteGiraffe} editGiraffe={editGiraffe}/>
-                        </div>
-                    )
+                        return (
+                            <div className={classes} key={giraffe._id}>
+                                <CardContentItem giraffeInfo={giraffe} saveGiraffe={saveGiraffe}
+                                                 deleteGiraffe={deleteGiraffe} editGiraffe={editGiraffe}/>
+                            </div>
+                        )
+                    }
                 })}
             </section>
         </div>

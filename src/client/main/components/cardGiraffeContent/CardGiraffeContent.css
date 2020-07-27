@@ -17,12 +17,14 @@
     width: 145px;
     height: 145px;
     margin-bottom: 27px;
+    cursor: pointer;
 }
 
 .svg-top-labels {
-    width: 150px;
-    height: 29px;
+    display: flex;
+    justify-content: space-around;
     margin-bottom: 13px;
+    width: 189px;
 }
 
 .specifications-bar {
@@ -47,7 +49,8 @@
     color: #333333;
     border: none;
     background-color:#DCB18B;
-    width: 30px;
+    width: 40px;
+
 }
 
 .specifications-bar-content::placeholder {
@@ -165,4 +168,12 @@
 .dropdown:hover .dropdown-content {
     display: block;
     margin-left: 200px;
+}
+
+.photo{
+    width: 145px;
+    height: 145px;
+    border-radius: 70px;
+    margin-bottom: 27px;
+
 }

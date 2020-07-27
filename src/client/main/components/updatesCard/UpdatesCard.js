@@ -45,7 +45,7 @@ function UpdateCard({close}) {
             </div>
             <div className='content-scroll'>
                 {updates.map((update) => {
-                    return (<div>
+                    return (<div key={update.id}>
                             <div className='table-selector'/>
                             <div className='row-hover'>
                                 <div className='row-table'>

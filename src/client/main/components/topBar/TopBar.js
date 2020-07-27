@@ -2,21 +2,37 @@ import React from 'react'
 import './TopBar.css'
 import '../styles.css'
 import AddAviary from "../AddAviary";
+import {storeForAviary} from "../redux/store";
+import {SET_NUMBER_OF_AVIARIES} from "../redux/types";
 
 function TopBar() {
-    const [aviaries, setAviary] = React.useState([
-        {id: '1', selected: true},
-        {id: '2', selected: false},
-        {id: '3', selected: false}
-    ])
+    const [aviaries, setAviary] = React.useState([{id:1, selected:true}])
+
+    React.useEffect(() => {
+            init()
+        }
+        , []
+    )
+
+    function init() {
+        const a = aviaries
+        for (let i = 2; i <= 3; i++) {
+            a.push({id: i, selected: false})
+        }
+        setAviary(a)
+    }
 
     function onClickAviary(id) {
         const id_ = +/\d+/.exec(id.currentTarget.innerText)
-        console.log(id_);
         setAviary(aviaries.map(aviary => {
-            aviary.selected = id_ == aviary.id;
+            aviary.selected = id_ === aviary.id;
             return aviary;
         }));
+
+        storeForAviary.dispatch({
+            type: SET_NUMBER_OF_AVIARIES,
+            id: id_
+        })
     }
 
     return (

@@ -1,5 +1,7 @@
 import React from 'react';
 import './styles.css'
+import {storeForAviary} from "./redux/store";
+import {SET_NUMBER_OF_AVIARIES} from "./redux/types";
 
 const style = {
     addAviaryButton: {
@@ -32,6 +34,11 @@ function AddAviary({aviaries, setAviary}) {
                 selected: true
             }
         ]));
+
+        storeForAviary.dispatch({
+            type: SET_NUMBER_OF_AVIARIES,
+            id: aviaries.length + 1
+        })
     }
 
     return (

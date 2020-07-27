@@ -11,23 +11,14 @@
     cursor: pointer;
 }
 
-.side-menu-button-selected{
+.side-menu-button-selected {
     background: #FFFFFF;
 }
-
-/*TODO*/
-/*.side-menu-button :hover {*/
-/*    background: #FFFFFF;*/
-/*    color: #567354;*/
-/*}*/
-
-/*.side-menu-svg :hover {*/
-/*    fill: #435F40;*/
-/*}*/
 
 .side-menu-svg {
     margin-left: 16px;
     height: 28px;
+    width: 28px;
 }
 
 .side-menu-svg-selected {
@@ -42,7 +33,7 @@
     line-height: 20px;
 }
 
-.side-menu-text-selected{
+.side-menu-text-selected {
     color: #567354;
 }
 
